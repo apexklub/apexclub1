@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#6D28D9" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Apex Club" />
+  <title>Apex Club — Life &amp; Entertainment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brandPurple: '#6D28D9',
+            brandPurpleLight: '#EDE9FE',
+            brandTurquoise: '#06B6D4',
+            brandTurquoiseLight: '#CFFAFE',
+            surfaceLight: '#F7F6FC',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #EFEDF8;
+      color: #1E1B4B;
+      touch-action: manipulation;
+      -webkit-text-size-adjust: 100%;
+      overscroll-behavior: none;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    .guest-blur {
+      filter: blur(6px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .soft-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .soft-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .soft-scroll::-webkit-scrollbar-thumb {
+      background: rgba(109, 40, 217, 0.25);
+      border-radius: 9999px;
+    }
+
+    .media-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .media-card:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-3">
+  <div id="app" class="w-full max-w-[450px] h-[100dvh] sm:h-[820px] sm:max-h-[94dvh] bg-[#F7F6FC] sm:rounded-[36px] sm:shadow-[0_20px_60px_rgba(76,29,149,0.18)] sm:border sm:border-purple-200/80 flex flex-col overflow-hidden relative">
+
+    <!-- YUXARI BAŞLIQ -->
+    <header class="bg-white/95 backdrop-blur border-b border-purple-100 px-4 py-3 flex items-center justify-between shrink-0 z-20">
+      <button type="button" onclick="setActiveTab('home')" class="flex items-center gap-3 text-left focus:outline-none">
+        <div class="w-12 h-12 rounded-xl overflow-hidden shadow-sm border border-purple-200/80 shrink-0 flex items-center justify-center bg-[#182B49]">
+          <svg viewBox="0 0 140 140" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-label="Apex Club Life and Entertainment Logo">
+            <defs>
+              <linearGradient id="apexSkyBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1E3354" />
+                <stop offset="52%" stop-color="#4A7296" />
+                <stop offset="82%" stop-color="#B8CBD6" />
+                <stop offset="100%" stop-color="#DCE6EC" />
+              </linearGradient>
+              <linearGradient id="apexGoldMetal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#E6C28A" />
+                <stop offset="48%" stop-color="#B98A54" />
+                <stop offset="100%" stop-color="#7A5229" />
+              </linearGradient>
+              <linearGradient id="apexRibbonGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#1A2C47" />
+                <stop offset="50%" stop-color="#294369" />
+                <stop offset="100%" stop-color="#1A2C47" />
+              </linearGradient>
+            </defs>
+
+            <rect width="140" height="140" fill="url(#apexSkyBg)" />
+            <circle cx="16" cy="15" r="1" fill="#FFFFFF" opacity="0.85" />
+            <circle cx="34" cy="24" r="1.2" fill="#E0F2FE" opacity="0.8" />
+            <circle cx="52" cy="11" r="0.9" fill="#FFFFFF" opacity="0.75" />
+            <circle cx="88" cy="14" r="1.1" fill="#FDE68A" opacity="0.8" />
+            <circle cx="109" cy="22" r="1.3" fill="#FFFFFF" opacity="0.85" />
+            <circle cx="126" cy="12" r="0.9" fill="#E0F2FE" opacity="0.7" />
+            <circle cx="22" cy="43" r="0.9" fill="#FFFFFF" opacity="0.6" />
+            <circle cx="118" cy="40" r="1" fill="#FFFFFF" opacity="0.65" />
+
+            <path d="M70 11 L89 44 H81.5 L70 23.5 L58.5 44 H51 Z" fill="none" stroke="url(#apexGoldMetal)" stroke-width="2.6" stroke-linejoin="round" />
+            <path d="M70 17.5 L76.5 31.5 H63.5 Z" fill="none" stroke="url(#apexGoldMetal)" stroke-width="2" stroke-linejoin="round" />
+            <circle cx="62" cy="37" r="2.2" fill="url(#apexGoldMetal)" />
+            <circle cx="78" cy="37" r="2.2" fill="url(#apexGoldMetal)" />
+
+            <text x="70" y="60" text-anchor="middle" fill="url(#apexGoldMetal)" stroke="#3E2A14" stroke-width="0.45" font-size="16.5" font-weight="900" letter-spacing="1.4">APEX</text>
+            <text x="70" y="75.5" text-anchor="middle" fill="url(#apexGoldMetal)" stroke="#3E2A14" stroke-width="0.45" font-size="14" font-weight="900" letter-spacing="1.8">CLUB</text>
+
+            <circle cx="34" cy="83" r="10.5" fill="#1E293B" stroke="#CBD5E1" stroke-width="1" />
+            <path d="M27 83 L41 81" stroke="#F8FAFC" stroke-width="1.2" />
+            <circle cx="32" cy="80" r="1.8" fill="#FBBF24" />
+            <circle cx="37" cy="85" r="1.8" fill="#38BDF8" />
+            <circle cx="36" cy="78" r="1.6" fill="#FFFFFF" />
+
+            <circle cx="48" cy="96" r="11" fill="#312E81" stroke="#CBD5E1" stroke-width="1" />
+            <line x1="41" y1="101" x2="55" y2="93" stroke="#F472B6" stroke-width="1.5" />
+            <circle cx="52" cy="91" r="1.6" fill="#E2E8F0" />
+            <circle cx="45" cy="96" r="2" fill="#38BDF8" />
+
+            <circle cx="70" cy="95" r="15.5" fill="#0F172A" stroke="#E2E8F0" stroke-width="1.3" />
+            <path d="M59 89 H81 L78 83.5 C74 81.5 66 81.5 62 83.5 Z" fill="#1E293B" stroke="#94A3B8" stroke-width="0.8" />
+            <circle cx="67.5" cy="94.5" r="4.5" fill="#FDBA74" />
+            <path d="M61 107 C62 101 73 101 74 107 Z" fill="#334155" />
+            <circle cx="76.5" cy="94" r="3.8" fill="#FCD34D" />
+            <path d="M72 107 C73 101.5 81 101.5 82 107 Z" fill="#991B1B" />
+
+            <circle cx="92" cy="96" r="11" fill="#FDE68A" stroke="#CBD5E1" stroke-width="1" />
+            <rect x="86" y="95" width="12" height="6.5" rx="1.5" fill="#F97316" />
+            <circle cx="90" cy="92.5" r="1.7" fill="#1E3A8A" />
+            <circle cx="95" cy="92.5" r="1.7" fill="#0F766E" />
+
+            <circle cx="106" cy="83" r="10.5" fill="#1E1B4B" stroke="#CBD5E1" stroke-width="1" />
+            <circle cx="102" cy="81" r="1.7" fill="#F472B6" />
+            <circle cx="106" cy="79.5" r="1.7" fill="#22D3EE" />
+            <circle cx="110" cy="82" r="1.7" fill="#FACC15" />
+
+            <path id="ribbonArc" d="M 12 94 Q 70 138 128 94 L 123 105 Q 70 144 17 105 Z" fill="url(#apexRibbonGrad)" stroke="#CBD5E1" stroke-width="1" />
+            <path id="ribbonTextPath" d="M 19 101 Q 70 139 121 101" fill="none" />
+            <text fill="url(#apexGoldMetal)" font-size="6.4" font-weight="800" letter-spacing="1.1">
+              <textPath href="#ribbonTextPath" startOffset="50%" text-anchor="middle">LIFE &amp; ENTERTAINMENT</textPath>
+            </text>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="text-sm font-extrabold tracking-tight text-purple-950 flex items-center gap-1">
+            <span>APEX CLUB</span>
+            <span class="w-2 h-2 rounded-full bg-cyan-500 inline-block"></span>
+          </div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-cyan-700">
+            Life &amp; Entertainment
+          </div>
+        </div>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          onclick="openRoleModal()"
+          id="topRoleBadge"
+          class="px-3 py-1.5 rounded-full text-xs font-bold transition shadow-xs border flex items-center gap-1.5"
+        ></button>
+      </div>
+    </header>
+
+    <!-- BİLDİRİŞ BANNERİ -->
+    <div id="toastBanner" class="hidden px-4 py-2.5 bg-purple-900 text-white text-xs sm:text-sm font-medium flex items-center justify-between gap-2 shrink-0 z-20">
+      <span id="toastText"></span>
+      <button type="button" onclick="hideToast()" class="text-cyan-300 font-bold text-sm px-1.5">✕</button>
+    </div>
+
+    <!-- ƏSAS MƏZMUN SAHƏSİ -->
+    <main id="mainContainer" class="flex-1 overflow-y-auto soft-scroll p-4 flex flex-col min-h-0 space-y-4"></main>
+
+    <!-- AŞAĞI NAVİQASİYA -->
+    <nav class="bg-white border-t border-purple-100 px-1.5 py-2 grid grid-cols-6 gap-1 shrink-0 z-20">
+      <button type="button" data-nav="home" onclick="setActiveTab('home')" class="nav-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-xs font-semibold transition">
+        <span class="text-base mb-0.5">🏠</span>
+        <span class="truncate w-full text-center">Əsas</span>
+      </button>
+
+      <button type="button" data-nav="announcements" onclick="setActiveTab('announcements')" class="nav-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-xs font-semibold transition">
+        <span class="text-base mb-0.5">📢</span>
+        <span class="truncate w-full text-center">Elanlar</span>
+      </button>
+
+      <button type="button" data-nav="chat" onclick="setActiveTab('chat')" class="nav-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-xs font-semibold transition">
+        <span class="text-base mb-0.5">💬</span>
+        <span class="truncate w-full text-center">Söhbət</span>
+      </button>
+
+      <button type="button" data-nav="dm" onclick="setActiveTab('dm')" class="nav-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-xs font-semibold transition">
+        <span class="text-base mb-0.5">✉️</span>
+        <span class="truncate w-full text-center">Şəxsi</span>
+      </button>
+
+      <button type="button" data-nav="members" onclick="setActiveTab('members')" class="nav-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-xs font-semibold transition">
+        <span class="text-base mb-0.5">👥</span>
+        <span class="truncate w-full text-center">Üzvlər</span>
+      </button>
+
+      <button type="button" data-nav="account" onclick="setActiveTab('account')" class="nav-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-xs font-semibold transition">
+        <span class="text-base mb-0.5">👤</span>
+        <span class="truncate w-full text-center">Hesab</span>
+      </button>
+    </nav>
+
+    <!-- AUTH MODALI -->
+    <div id="authModal" class="hidden fixed inset-0 bg-purple-950/50 backdrop-blur-[2px] z-50 flex items-center justify-center p-3">
+      <div class="bg-white w-full max-w-[400px] rounded-2xl shadow-2xl border border-purple-100 overflow-hidden max-h-[92dvh] flex flex-col">
+        <div class="px-4 py-3.5 bg-gradient-to-r from-purple-700 to-cyan-600 text-white flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-base" id="modalHeaderTitle">Apex Club — Giriş &amp; Qeydiyyat</span>
+          </div>
+          <button type="button" onclick="closeAuthModal()" class="text-white/90 hover:text-white font-bold text-base px-2">✕</button>
+        </div>
+        <div id="modalBody" class="p-4 overflow-y-auto soft-scroll space-y-3.5 text-xs sm:text-sm"></div>
+      </div>
+    </div>
+
+    <!-- MƏLUMAT MODALI -->
+    <div id="editProfileModal" class="hidden fixed inset-0 bg-purple-950/55 backdrop-blur-[2px] z-50 flex items-center justify-center p-4">
+      <div class="bg-white w-full max-w-[380px] rounded-2xl shadow-2xl border border-purple-200 p-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-bold text-purple-950" id="editModalTitle">Məlumatı Dəyişdir</h3>
+          <button type="button" onclick="closeEditProfileModal()" class="text-slate-400 hover:text-slate-700 font-bold text-base">✕</button>
+        </div>
+        <div id="editModalBody" class="space-y-3 text-xs sm:text-sm"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const AZ_MONTHS = [
+      'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun',
+      'iyul', 'avqust', 'sentyabr', 'oktyabr', 'noyabr', 'dekabr'
+    ];
+
+    function formatAzDate(isoDateStr) {
+      try {
+        const parts = isoDateStr.split('-');
+        if (parts.length === 3) {
+          const year = parseInt(parts[0], 10);
+          const monthIdx = parseInt(parts[1], 10) - 1;
+          const day = parseInt(parts[2], 10);
+          if (!isNaN(day) && monthIdx >= 0 && monthIdx < 12 && !isNaN(year)) {
+            return `${day} ${AZ_MONTHS[monthIdx]} ${year}`;
+          }
+        }
+      } catch (e) {}
+      return '20 noyabr 2026';
+    }
+
+    function normalizePhoneDigits(phoneStr) {
+      const digits = String(phoneStr || '').replace(/[^\d]/g, '');
+      if (digits.startsWith('994') && digits.length === 12) {
+        return digits.slice(3);
+      }
+      return digits;
+    }
+
+    const SIX_MONTHS_MS = 180 * 24 * 60 * 60 * 1000;
+    const TWO_MONTHS_MS = 60 * 24 * 60 * 60 * 1000;
+    const NOW_MS = new Date('2026-11-20T05:00:00+04:00').getTime();
+    const PASSIVE_REMINDER_TEXT = 'Salam, Apex klub üzvüsünüz. Oyun və aktivliklərə nə zaman qoşulmağı düşünürsünüz?';
+
+    const CREATOR_ACCOUNT = {
+      id: 'creator1',
+      firstName: 'Apex',
+      lastName: 'Admin',
+      phone: '0708770085',
+      pin: '051983',
+      nickname: '@apex_creator',
+      isRegistered: true,
+      approvedByAdmin: true,
+      hidePhone: false,
+      role: 'creator',
+      status: 'creator',
+      lastRsvpMs: NOW_MS - (1 * 24 * 60 * 60 * 1000),
+      passiveNotified: false,
+      lastNickChangeMs: NOW_MS - (210 * 24 * 60 * 60 * 1000),
+      pendingProfileChanges: null,
+    };
+
+    const GUEST_ACCOUNT = {
+      id: 'guest_temp',
+      firstName: 'Qonaq',
+      lastName: 'İstifadəçi',
+      phone: '',
+      pin: '',
+      nickname: '@qonaq',
+      isRegistered: false,
+      approvedByAdmin: false,
+      hidePhone: true,
+      role: 'guest',
+      status: 'guest',
+      frozenUntilMs: null,
+      freezeDurationLabel: '',
+      freezeNote: '',
+    };
+
+    const state = {
+      activeTab: 'home',
+      role: 'guest',
+      announcementSubTab: 'weekly',
+      chatLocked: false,
+      selectedDmUserId: 'u2',
+      authModalMode: 'login',
+      accountActionModal: null,
+
+      currentUser: { ...GUEST_ACCOUNT },
+
+      clubMediaFeed: [
+        {
+          id: 'v3',
+          type: 'video',
+          title: '🔥 Apex Club Noyabr Şahmat Turniri — Qazanılan Anlar',
+          date: '2026-11-18',
+          thumbnail: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=600&q=80',
+          link: 'https://instagram.com',
+          duration: '01:45',
+          description: 'Həftəsonu keçirdiyimiz şahmat turnirindən ən həyəcanlı anlar və qaliblərin mükafatlandırılması.'
+        },
+        {
+          id: 'v2',
+          type: 'video',
+          title: '🎬 Qonaq Spikerlə Netvorkinq Görüşünün İcmalı',
+          date: '2026-11-05',
+          thumbnail: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
+          link: 'https://instagram.com',
+          duration: '02:30',
+          description: 'Biznes və Liderlik mövzusunda keçirilən sonuncu interaktiv seminarımızın video çarxı.'
+        },
+        {
+          id: 'v1',
+          type: 'link',
+          title: '📰 Apex Club Oktyabr Ayı Xəbər Bülleteni',
+          date: '2026-10-28',
+          thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80',
+          link: 'https://instagram.com',
+          description: 'Klubumuzun Oktyabr ayındakı bütün fəaliyyətləri, xeyriyyə aksiyaları və gələcək planları haqqında ətraflı məqalə.'
+        }
+      ],
+
+      announcements: [
+        {
+          id: 'a1',
+          type: 'weekly',
+          title: 'Həftəlik Şahmat və Netvorkinq Turniri',
+          date: '2026-11-20',
+          location: 'Klub Mərkəzi — Otaq 3',
+          description: 'Həftəlik aktivlikdə strategiya oyunları və klub üzvləri arasında netvorkinq söhbəti keçiriləcək.',
+          attendees: [
+            { userId: 'creator1', name: 'Apex Admin', status: 'going' },
+            { userId: 'u2', name: 'Nigar Əliyeva', status: 'maybe' },
+          ],
+        },
+        {
+          id: 'a2',
+          type: 'monthly',
+          title: 'Noyabr Ayı Qala Görüşü və Qonaq Spiker',
+          date: '2026-11-29',
+          location: 'Apex Club Sammit Zalı',
+          description: 'Aylıq böyük görüşdə biznes layihələrinin təqdimatı və ayın yekunları keçiriləcək.',
+          attendees: [
+            { userId: 'creator1', name: 'Apex Admin', status: 'going' },
+            { userId: 'u3', name: 'Rauf Hüseynov', status: 'going' },
+          ],
+        },
+      ],
+
+      members: [
+        { ...CREATOR_ACCOUNT },
+        {
+          id: 'admin1',
+          firstName: 'Kamran',
+          lastName: 'İbrahimov',
+          phone: '0509990001',
+          pin: '999999',
+          nickname: '@kamran_admin',
+          isRegistered: true,
+          approvedByAdmin: true,
+          role: 'admin',
+          status: 'admin',
+          lastRsvpMs: NOW_MS - (2 * 24 * 60 * 60 * 1000),
+          passiveNotified: false,
+        },
+        {
+          id: 'u3',
+          firstName: 'Rauf',
+          lastName: 'Hüseynov',
+          phone: '0703014419',
+          pin: '432109',
+          nickname: '@rauf_moder',
+          isRegistered: true,
+          approvedByAdmin: true,
+          role: 'member',
+          status: 'moder',
+          lastRsvpMs: NOW_MS - (4 * 24 * 60 * 60 * 1000),
+          passiveNotified: false,
+        },
+        {
+          id: 'u2',
+          firstName: 'Nigar',
+          lastName: 'Əliyeva',
+          phone: '0554128890',
+          pin: '258012',
+          nickname: '@nigar_star',
+          isRegistered: true,
+          approvedByAdmin: true,
+          role: 'member',
+          status: 'old',
+          lastRsvpMs: NOW_MS - (5 * 24 * 60 * 60 * 1000),
+          passiveNotified: false,
+        },
+        {
+          id: 'u1',
+          firstName: 'Anar',
+          lastName: 'Məmmədov',
+          phone: '0505551234',
+          pin: '123456',
+          nickname: '@anar_apex',
+          isRegistered: true,
+          approvedByAdmin: true,
+          role: 'member',
+          status: 'aktiv',
+          lastRsvpMs: NOW_MS - (70 * 24 * 60 * 60 * 1000),
+          passiveNotified: false,
+        },
+      ],
+
+      pendingRegistrations: [],
+      pendingProfileEdits: [],
+
+      chatMessages: [
+        { id: 'm1', senderNick: '@kamran_admin', senderStatus: 'admin', isAdmin: true, text: 'Salam Apex Club ailəsi! Bu həftəki turnirə qeydiyyat açıqdır.', time: '19:10' },
+        { id: 'm2', senderNick: '@nigar_star', senderStatus: 'old', isAdmin: false, text: 'Mən mütləq gəlirəm!', time: '19:14' },
+        { id: 'm3', senderNick: '@anar_apex', senderStatus: 'aktiv', isAdmin: false, text: 'Saat 20:00-da orada olacağam.', time: '19:18' },
+      ],
+
+      dmThreads: {
+        u2: [
+          { id: 'dm1', fromMe: false, text: 'Salam! Turnirə qoşulursan?', time: '18:05' },
+          { id: 'dm2', fromMe: true, text: 'Salam Nigar! Bəli, "Gələcəyəm" seçmişəm.', time: '18:08' },
+        ],
+      },
+      deletedAccountsLog: [],
+    };
+
+    function isMemberPassive(memberLike) {
+      if (!memberLike) return false;
+      const lastAction = memberLike.lastRsvpMs || 0;
+      return (NOW_MS - lastAction) >= TWO_MONTHS_MS;
+    }
+
+    function checkPassiveMembersAndNotify(targetUser) {
+      const candidates = targetUser ? [targetUser] : [state.currentUser, ...state.members];
+      candidates.forEach((person) => {
+        if (!person || person.isRegistered === false) return;
+        if (isMemberPassive(person) && !person.passiveNotified) {
+          person.passiveNotified = true;
+          if (!state.dmThreads[person.id]) {
+            state.dmThreads[person.id] = [];
+          }
+          const alreadyHas = state.dmThreads[person.id].some((m) => m.text === PASSIVE_REMINDER_TEXT);
+          if (!alreadyHas) {
+            state.dmThreads[person.id].push({
+              id: 'passive-' + Date.now() + '-' + person.id,
+              fromMe: false,
+              text: PASSIVE_REMINDER_TEXT,
+              time: 'Avtomatik (2 ay)',
+            });
+          }
+          if (person.id === state.currentUser.id) {
+            showToast(PASSIVE_REMINDER_TEXT);
+          }
+        }
+      });
+    }
+
+    function renderTopRoleBadge() {
+      const badge = document.getElementById('topRoleBadge');
+      if (state.role === 'guest') {
+        badge.className = 'px-3 py-1.5 rounded-full text-xs font-bold border bg-cyan-50 text-cyan-800 border-cyan-200 flex items-center gap-1.5';
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-500"></span>Qonaq`;
+      } else if (state.role === 'admin') {
+        badge.className = 'px-3 py-1.5 rounded-full text-xs font-bold border bg-blue-900 text-white border-blue-950 flex items-center gap-1.5';
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-300"></span>Admin`;
+      } else if (state.role === 'creator') {
+        badge.className = 'px-3 py-1.5 rounded-full text-xs font-bold border bg-purple-900 text-purple-100 border-purple-950 flex items-center gap-1.5';
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-fuchsia-300"></span>Yaradıcı`;
+      } else {
+        badge.className = 'px-3 py-1.5 rounded-full text-xs font-bold border bg-purple-100 text-purple-800 border-purple-200 flex items-center gap-1.5';
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-purple-600"></span>Üzv`;
+      }
+    }
+
+    function getStatusBadgeHtml(statusKey) {
+      const map = {
+        creator: { text: 'yaradıcı', cls: 'bg-purple-100 text-purple-800 border-purple-300' },
+        admin: { text: 'admin', cls: 'bg-blue-100 text-blue-900 border-blue-300' },
+        moder: { text: 'moder', cls: 'bg-sky-100 text-sky-700 border-sky-300' },
+        old: { text: 'old', cls: 'bg-orange-100 text-orange-700 border-orange-300' },
+        aktiv: { text: 'aktiv', cls: 'bg-purple-50 text-purple-700 border-purple-200' },
+      };
+      const item = map[statusKey] || map.aktiv;
+      return `<span class="inline-block text-[10px] font-bold lowercase px-2 py-0.5 rounded-full border leading-none ${item.cls}">${item.text}</span>`;
+    }
+
+    function openRoleModal(mode = 'login') {
+      state.authModalMode = mode;
+      renderAuthModal();
+      document.getElementById('authModal').classList.remove('hidden');
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.add('hidden');
+    }
+
+    function handlePinLogin() {
+      const phoneVal = (document.getElementById('loginPhoneInput')?.value || '').trim();
+      const pinVal = (document.getElementById('loginPinInput')?.value || '').trim();
+      const errEl = document.getElementById('loginErrorMsg');
+
+      if (!phoneVal) {
+        errEl.textContent = 'Telefon nömrəsi daxil edilməlidir.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      if (!/^\d{6}$/.test(pinVal)) {
+        errEl.textContent = '6 rəqəmli parol daxil edin.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      const inputDigits = normalizePhoneDigits(phoneVal);
+
+      const matchedMember = state.members.find(
+        (m) =>
+          m.isRegistered === true &&
+          m.pin === pinVal &&
+          normalizePhoneDigits(m.phone).includes(inputDigits)
+      );
+
+      if (!matchedMember) {
+        errEl.innerHTML = 'Bu nömrə və parol ilə hesab tapılmadı və ya hələ təsdiqlənməyib.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      errEl.classList.add('hidden');
+      state.role = matchedMember.status === 'creator' ? 'creator' : (matchedMember.role === 'admin' ? 'admin' : 'member');
+      state.currentUser = { ...matchedMember };
+      closeAuthModal();
+      render();
+      showToast(`Xoş gəldiniz, ${matchedMember.firstName}!`);
+    }
+
+    function handleRegisterSubmit() {
+      const fn = (document.getElementById('regFirstName')?.value || '').trim();
+      const ln = (document.getElementById('regLastName')?.value || '').trim();
+      const ph = (document.getElementById('regPhone')?.value || '').trim();
+      let nick = (document.getElementById('regNick')?.value || '').trim();
+      const pin = (document.getElementById('regPin')?.value || '').trim();
+      const errEl = document.getElementById('regErrorMsg');
+
+      if (!fn || !ln || !ph) {
+        errEl.textContent = 'Ad, soyad və telefon nömrəsini doldurun.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      if (!nick || nick.replace(/^@/, '').length < 3) {
+        errEl.textContent = 'Nik mütləq daxil edilməli və ən azı 3 hərfdən ibarət olmalıdır.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      if (!nick.startsWith('@')) nick = '@' + nick;
+
+      if (!/^\d{6}$/.test(pin)) {
+        errEl.textContent = 'Parol mütləq 6 rəqəmdən ibarət olmalıdır.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      errEl.classList.add('hidden');
+      const newId = 'u-' + Date.now();
+
+      const pendingUser = {
+        id: newId,
+        firstName: fn,
+        lastName: ln,
+        phone: ph,
+        pin: pin,
+        nickname: nick,
+        status: 'aktiv',
+        hidePhone: false,
+        isRegistered: true,
+        approvedByAdmin: false,
+        role: 'member',
+        lastRsvpMs: NOW_MS,
+        passiveNotified: false,
+      };
+
+      state.pendingRegistrations.push(pendingUser);
+      closeAuthModal();
+      showToast('Qeydiyyat müraciətiniz göndərildi. Admin təsdiqlədikdən sonra hesabınız aktivləşəcək.');
+      render();
+    }
+
+    function approveUserByAdmin(userId) {
+      const idx = state.pendingRegistrations.findIndex((u) => u.id === userId);
+      if (idx >= 0) {
+        const u = state.pendingRegistrations[idx];
+        u.approvedByAdmin = true;
+        state.members.push(u);
+        state.pendingRegistrations.splice(idx, 1);
+        showToast(`${u.firstName} ${u.lastName} qeydiyyatı təsdiqləndi!`);
+        render();
+      }
+    }
+
+    function renderAuthModal() {
+      const titleEl = document.getElementById('modalHeaderTitle');
+      const bodyEl = document.getElementById('modalBody');
+
+      if (state.authModalMode === 'login') {
+        titleEl.textContent = 'Hesaba Giriş';
+        bodyEl.innerHTML = `
+          <div class="space-y-3">
+            <div>
+              <label class="block font-semibold text-purple-950 mb-1">Telefon nömrəsi *</label>
+              <input id="loginPhoneInput" type="tel" placeholder="0708770085 və ya nömrəniz" class="w-full rounded-xl border border-purple-200 px-3 py-2.5 text-sm" />
+            </div>
+            <div>
+              <label class="block font-semibold text-purple-950 mb-1">6 rəqəmli parol *</label>
+              <input id="loginPinInput" type="password" inputmode="numeric" maxlength="6" placeholder="••••••" class="w-full rounded-xl border border-purple-200 px-3 py-2.5 text-base tracking-widest font-bold text-center" />
+            </div>
+            <p id="loginErrorMsg" class="hidden text-xs text-red-600 font-semibold leading-relaxed"></p>
+            <button type="button" onclick="handlePinLogin()" class="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-sm">
+              Daxil ol
+            </button>
+            <div class="flex items-center justify-between pt-1 text-xs">
+              <button type="button" onclick="openRoleModal('register')" class="text-purple-700 font-bold hover:underline">
+                Yeni Qeydiyyat
+              </button>
+            </div>
+          </div>
+        `;
+      } else if (state.authModalMode === 'register') {
+        titleEl.textContent = 'Yeni Üzv Qeydiyyatı';
+        bodyEl.innerHTML = `
+          <div class="space-y-2.5">
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900 leading-snug">
+              ⚠️ Qeydiyyat tamamlandıqdan sonra hesabınız <b>Admin təsdiqinə</b> göndəriləcək.
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block font-semibold text-purple-950 mb-1">Ad *</label>
+                <input id="regFirstName" type="text" placeholder="Ad" class="w-full rounded-xl border border-purple-200 px-3 py-2 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block font-semibold text-purple-950 mb-1">Soyad *</label>
+                <input id="regLastName" type="text" placeholder="Soyad" class="w-full rounded-xl border border-purple-200 px-3 py-2 text-xs sm:text-sm" />
+              </div>
+            </div>
+            <div>
+              <label class="block font-semibold text-purple-950 mb-1">Telefon nömrəsi *</label>
+              <input id="regPhone" type="tel" placeholder="0500000000" class="w-full rounded-xl border border-purple-200 px-3 py-2 text-xs sm:text-sm" />
+            </div>
+            <div>
+              <label class="block font-semibold text-purple-950 mb-1">Nik / Etiket *</label>
+              <input id="regNick" type="text" placeholder="Çatda görünəcək ad" class="w-full rounded-xl border border-purple-200 px-3 py-2 text-xs sm:text-sm font-semibold text-cyan-900" />
+            </div>
+            <div>
+              <label class="block font-semibold text-purple-950 mb-1">6 rəqəmli parol *</label>
+              <input id="regPin" type="password" inputmode="numeric" maxlength="6" placeholder="6 rəqəm" class="w-full rounded-xl border border-purple-200 px-3 py-2 text-xs sm:text-sm font-bold tracking-widest" />
+            </div>
+            <p id="regErrorMsg" class="hidden text-xs text-red-600 font-semibold"></p>
+            <button type="button" onclick="handleRegisterSubmit()" class="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-sm">
+              Qeydiyyat Müraciətini Göndər
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    function creatorChangeMemberStatus(memberId, newStatus) {
+      if (state.role !== 'creator') return;
+      const member = state.members.find((m) => m.id === memberId);
+      if (!member) return;
+      const prevStatus = member.status || (member.role === 'admin' ? 'admin' : 'aktiv');
+      member.status = newStatus;
+      member.role = newStatus === 'admin' ? 'admin' : 'member';
+      if (state.currentUser.id === memberId) {
+        state.currentUser.status = newStatus;
+        state.currentUser.role = member.role;
+      }
+      render();
+      showToast(`${member.firstName} ${member.lastName} statusu "${newStatus}" olaraq dəyişdirildi.`);
+    }
+
+    function handleRsvp(announcementId, choice) {
+      if (state.role === 'guest') {
+        showToast('Elanlara qoşulmaq üçün əvvəlcə giriş edin.');
+        openRoleModal('login');
+        return;
+      }
+
+      const ann = state.announcements.find((a) => a.id === announcementId);
+      if (!ann) return;
+
+      const userId = state.currentUser.id;
+      const fullName = `${state.currentUser.firstName} ${state.currentUser.lastName}`;
+      const existingIdx = ann.attendees.findIndex((item) => item.userId === userId);
+
+      if (existingIdx >= 0) {
+        ann.attendees[existingIdx].status = choice;
+        ann.attendees[existingIdx].name = fullName;
+      } else {
+        ann.attendees.push({ userId, name: fullName, status: choice });
+      }
+
+      state.currentUser.lastRsvpMs = NOW_MS;
+      render();
+      showToast('Seçiminiz qeydə alındı.');
+    }
+
+    function toggleChatLock() {
+      if (state.role !== 'admin' && state.role !== 'creator') return;
+      state.chatLocked = !state.chatLocked;
+      render();
+      showToast(state.chatLocked ? 'Söhbət bağlandı.' : 'Söhbət açıldı.');
+    }
+
+    function sendGroupMessage() {
+      if (state.role === 'guest' || (state.chatLocked && state.role !== 'admin' && state.role !== 'creator')) return;
+      const input = document.getElementById('groupChatInput');
+      if (!input) return;
+      const text = input.value.trim();
+      if (!text) return;
+
+      state.chatMessages.push({
+        id: 'm-' + Date.now(),
+        senderNick: state.currentUser.nickname || '@uzv',
+        senderName: `${state.currentUser.firstName} ${state.currentUser.lastName}`,
+        senderStatus: state.role === 'creator' ? 'creator' : (state.role === 'admin' ? 'admin' : (state.currentUser.status || 'aktiv')),
+        isAdmin: state.role === 'admin' || state.role === 'creator',
+        text,
+        time: 'İndi',
+      });
+
+      input.value = '';
+      render();
+    }
+
+    function sendDirectMessage() {
+      if (state.role === 'guest') return;
+      const input = document.getElementById('dmInput');
+      if (!input) return;
+      const text = input.value.trim();
+      if (!text) return;
+
+      const targetId = state.selectedDmUserId;
+      if (!state.dmThreads[targetId]) state.dmThreads[targetId] = [];
+      state.dmThreads[targetId].push({
+        id: 'dm-' + Date.now(),
+        fromMe: true,
+        text,
+        time: 'İndi',
+      });
+
+      input.value = '';
+      render();
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      const textEl = document.getElementById('toastText');
+      if (!banner || !textEl) return;
+      textEl.textContent = msg;
+      banner.classList.remove('hidden');
+    }
+
+    function hideToast() {
+      const banner = document.getElementById('toastBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function setActiveTab(tabName) {
+      state.activeTab = tabName;
+      render();
+    }
+
+    function updateNavStyles() {
+      const buttons = document.querySelectorAll('.nav-btn');
+      buttons.forEach((btn) => {
+        const navKey = btn.getAttribute('data-nav');
+        if (navKey === state.activeTab) {
+          btn.classList.add('bg-purple-100', 'text-purple-900', 'font-bold');
+          btn.classList.remove('text-slate-600');
+        } else {
+          btn.classList.remove('bg-purple-100', 'text-purple-900', 'font-bold');
+          btn.classList.add('text-slate-600');
+        }
+      });
+    }
+
+    function renderHomeView() {
+      const isGuest = state.role === 'guest';
+      const isAdmin = state.role === 'admin';
+      const isCreator = state.role === 'creator';
+
+      return `
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl p-4 border border-purple-100 shadow-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <h2 class="text-sm sm:text-base font-extrabold text-purple-950">
+                ${isGuest ? 'Xoş gəldiniz — Qonaq Rejimi' : `Xoş gəldiniz, ${state.currentUser.firstName}`}
+              </h2>
+              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                ${state.announcements.length} elan
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              ${
+                isGuest
+                  ? 'Klubun son görüş videolarını və elanlarını görə bilərsiniz. Qoşulmaq və yazmaq üçün daxil olun və ya qeydiyyatdan keçin.'
+                  : 'Həftəlik və aylıq elanlara baxa, cavab verə, ümumi və şəxsi söhbətlərdən istifadə edə bilərsiniz.'
+              }
+            </p>
+            ${
+              isGuest
+                ? `<div class="flex gap-2 pt-1">
+                     <button type="button" onclick="openRoleModal('login')" class="flex-1 py-2.5 rounded-xl bg-purple-700 text-white text-xs sm:text-sm font-bold">Giriş</button>
+                     <button type="button" onclick="openRoleModal('register')" class="flex-1 py-2.5 rounded-xl bg-cyan-600 text-white text-xs sm:text-sm font-bold">Qeydiyyat</button>
+                   </div>`
+                : ''
+            }
+          </div>
+
+          ${
+            (isAdmin || isCreator) && state.pendingRegistrations.length > 0
+              ? `<div class="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 space-y-2.5">
+                   <div class="text-xs sm:text-sm font-extrabold text-amber-950">Təsdiq Gözləyən Sorğular</div>
+                   ${state.pendingRegistrations
+                     .map(
+                       (u) => `
+                         <div class="bg-white rounded-xl p-2.5 border border-amber-200 flex items-center justify-between gap-2 text-xs">
+                           <div>
+                             <div class="font-bold text-purple-950">${u.firstName} ${u.lastName}</div>
+                             <div class="text-slate-600">${u.phone} • ${u.nickname}</div>
+                           </div>
+                           <button type="button" onclick="approveUserByAdmin('${u.id}')" class="px-3 py-1.5 rounded-lg bg-purple-700 text-white font-bold">Təsdiqlə</button>
+                         </div>
+                       `
+                     )
+                     .join('')}
+                 </div>`
+              : ''
+          }
+
+          <div class="space-y-2.5">
+            <h3 class="text-xs sm:text-sm font-extrabold text-purple-950">Son Görüş Videoları və Xəbərlər</h3>
+            ${state.clubMediaFeed
+              .map(
+                (media) => `
+                  <article class="media-card bg-white rounded-2xl overflow-hidden border border-purple-100 shadow-2xs">
+                    <img
+                      src="${media.thumbnail}"
+                      alt="${media.title}"
+                      onerror="this.src='https://placehold.co/600x260/ede9fe/4c1d95?text=Apex+Club'"
+                      class="w-full h-36 object-cover"
+                    />
+                    <div class="p-3.5 space-y-1.5">
+                      <div class="flex items-center justify-between text-[11px] font-semibold text-purple-700">
+                        <span>${formatAzDate(media.date)}</span>
+                        <span>${media.duration ? '⏱ ' + media.duration : 'Xəbər'}</span>
+                      </div>
+                      <div class="text-xs sm:text-sm font-extrabold text-purple-950">${media.title}</div>
+                      <p class="text-xs text-slate-600 leading-relaxed">${media.description}</p>
+                    </div>
+                  </article>
+                `
+              )
+              .join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAnnouncementsView() {
+      const isGuest = state.role === 'guest';
+      const filtered = state.announcements.filter((a) => a.type === state.announcementSubTab);
+
+      return `
+        <div class="space-y-3.5">
+          <div class="grid grid-cols-2 gap-2 bg-white p-1.5 rounded-2xl border border-purple-100">
+            <button
+              type="button"
+              onclick="state.announcementSubTab='weekly'; render();"
+              class="py-2 rounded-xl text-xs sm:text-sm font-bold transition ${
+                state.announcementSubTab === 'weekly' ? 'bg-purple-700 text-white' : 'text-purple-950'
+              }"
+            >
+              Həftəlik elanlar
+            </button>
+            <button
+              type="button"
+              onclick="state.announcementSubTab='monthly'; render();"
+              class="py-2 rounded-xl text-xs sm:text-sm font-bold transition ${
+                state.announcementSubTab === 'monthly' ? 'bg-purple-700 text-white' : 'text-purple-950'
+              }"
+            >
+              Aylıq elanlar
+            </button>
+          </div>
+
+          <div class="space-y-3">
+            ${filtered
+              .map((ann) => {
+                const goingCount = ann.attendees.filter((x) => x.status === 'going').length;
+                const maybeCount = ann.attendees.filter((x) => x.status === 'maybe').length;
+                const cantCount = ann.attendees.filter((x) => x.status === 'cant').length;
+                const myChoice = !isGuest
+                  ? ann.attendees.find((x) => x.userId === state.currentUser.id)?.status
+                  : null;
+
+                return `
+                  <article class="bg-white rounded-2xl p-4 border border-purple-100 shadow-2xs space-y-2.5">
+                    <div class="flex items-center justify-between text-xs font-bold text-purple-700">
+                      <span>${formatAzDate(ann.date)}</span>
+                      <span class="text-cyan-800">${goingCount} nəfər qatılır</span>
+                    </div>
+                    <h3 class="text-sm sm:text-base font-extrabold text-purple-950">${ann.title}</h3>
+                    <div class="text-xs text-slate-500 font-medium">📍 ${ann.location}</div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${ann.description}</p>
+
+                    ${
+                      isGuest
+                        ? `<div class="bg-cyan-50 border border-cyan-200 rounded-xl p-2.5 flex items-center justify-between gap-2 text-xs">
+                             <span class="text-cyan-950 font-medium">Qoşulmaq üçün daxil olun.</span>
+                             <button type="button" onclick="openRoleModal('login')" class="px-3 py-1.5 rounded-lg bg-purple-700 text-white font-bold shrink-0">Giriş</button>
+                           </div>`
+                        : `<div class="grid grid-cols-3 gap-1.5 pt-1">
+                             <button
+                               type="button"
+                               onclick="handleRsvp('${ann.id}', 'going')"
+                               class="py-2 px-1.5 rounded-xl text-[11px] font-bold border ${
+                                 myChoice === 'going' ? 'bg-purple-700 text-white border-purple-700' : 'bg-purple-50 text-purple-900 border-purple-200'
+                               }"
+                             >
+                               Gələcəyəm
+                             </button>
+                             <button
+                               type="button"
+                               onclick="handleRsvp('${ann.id}', 'maybe')"
+                               class="py-2 px-1.5 rounded-xl text-[11px] font-bold border ${
+                                 myChoice === 'maybe' ? 'bg-cyan-600 text-white border-cyan-600' : 'bg-cyan-50 text-cyan-900 border-cyan-200'
+                               }"
+                             >
+                               Əmin deyiləm
+                             </button>
+                             <button
+                               type="button"
+                               onclick="handleRsvp('${ann.id}', 'cant')"
+                               class="py-2 px-1.5 rounded-xl text-[11px] font-bold border ${
+                                 myChoice === 'cant' ? 'bg-rose-600 text-white border-rose-600' : 'bg-rose-50 text-rose-800 border-rose-200'
+                               }"
+                             >
+                               Gələ bilmirəm
+                             </button>
+                           </div>`
+                    }
+                  </article>
+                `;
+              })
+              .join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderChatView() {
+      if (state.role === 'guest') {
+        return `
+          <div class="h-full flex flex-col items-center justify-center text-center px-5 space-y-4 bg-white rounded-2xl border border-purple-100 p-6">
+            <div class="text-base font-extrabold text-purple-950">Söhbət qrupuna qatılmaq üçün qeydiyyatdan keçin.</div>
+            <div class="flex gap-2">
+              <button type="button" onclick="openRoleModal('login')" class="px-4 py-2.5 rounded-xl bg-purple-700 text-white text-xs sm:text-sm font-bold">Giriş</button>
+              <button type="button" onclick="openRoleModal('register')" class="px-4 py-2.5 rounded-xl bg-cyan-600 text-white text-xs sm:text-sm font-bold">Qeydiyyat</button>
+            </div>
+          </div>
+        `;
+      }
+
+      const isAdminOrCreator = state.role === 'admin' || state.role === 'creator';
+      const canWrite = !state.chatLocked || isAdminOrCreator;
+
+      return `
+        <div class="flex flex-col h-full min-h-0 bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-xs">
+          <div class="px-3.5 py-2.5 bg-purple-50 border-b border-purple-100 flex items-center justify-between shrink-0">
+            <div>
+              <div class="text-xs sm:text-sm font-extrabold text-purple-950">Ümumi Klub Söhbəti</div>
+              <div class="text-[11px] font-semibold ${state.chatLocked ? 'text-rose-600' : 'text-cyan-700'}">
+                ${state.chatLocked ? 'Söhbət bağlıdır' : 'Söhbət açıqdır'}
+              </div>
+            </div>
+            ${
+              isAdminOrCreator
+                ? `<button type="button" onclick="toggleChatLock()" class="px-3 py-1.5 rounded-xl text-xs font-bold ${
+                    state.chatLocked ? 'bg-cyan-600 text-white' : 'bg-rose-600 text-white'
+                  }">${state.chatLocked ? 'Söhbəti aç' : 'Söhbəti bağla'}</button>`
+                : ''
+            }
+          </div>
+
+          <div class="flex-1 min-h-0 overflow-y-auto soft-scroll p-3.5 space-y-2.5 bg-[#F7F6FC]">
+            ${state.chatMessages
+              .map((m) => {
+                const isMine = m.senderNick === state.currentUser.nickname;
+                return `
+                  <div class="flex flex-col ${isMine ? 'items-end' : 'items-start'}">
+                    <div class="mb-1 flex items-center gap-1.5">
+                      <span class="text-xs font-bold text-purple-950">${m.senderNick}</span>
+                      ${m.senderStatus ? getStatusBadgeHtml(m.senderStatus) : ''}
+                    </div>
+                    <div class="max-w-[85%] px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm shadow-2xs ${
+                      isMine ? 'bg-purple-700 text-white' : 'bg-white text-purple-950 border border-purple-100'
+                    }">
+                      ${m.text}
+                    </div>
+                    <span class="text-[10px] text-slate-400 mt-0.5">${m.time}</span>
+                  </div>
+                `;
+              })
+              .join('')}
+          </div>
+
+          <div class="p-2.5 bg-white border-t border-purple-100 shrink-0">
+            ${
+              canWrite
+                ? `<div class="flex gap-2">
+                     <input
+                       id="groupChatInput"
+                       type="text"
+                       placeholder="Mesaj yazın..."
+                       onkeydown="if(event.key==='Enter'){sendGroupMessage();}"
+                       class="flex-1 rounded-xl border border-purple-200 px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-purple-500"
+                     />
+                     <button type="button" onclick="sendGroupMessage()" class="px-4 py-2.5 rounded-xl bg-purple-700 text-white text-xs sm:text-sm font-bold">Göndər</button>
+                   </div>`
+                : `<div class="text-center py-2 text-xs font-bold text-rose-700 bg-rose-50 rounded-xl border border-rose-200">
+                     Söhbət adminlər tərəfindən bağlanıb.
+                   </div>`
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDirectMessagesView() {
+      if (state.role === 'guest') {
+        return `
+          <div class="h-full flex flex-col items-center justify-center text-center px-5 space-y-4">
+            <div class="text-base font-extrabold text-purple-950">Şəxsi mesaj bölməsi</div>
+            <button type="button" onclick="openRoleModal('login')" class="px-5 py-3 rounded-xl bg-purple-700 text-white text-xs sm:text-sm font-bold">Giriş et</button>
+          </div>
+        `;
+      }
+
+      const peers = state.members.filter((m) => m.id !== state.currentUser.id);
+      const selectedPeer = peers.find((p) => p.id === state.selectedDmUserId) || peers[0];
+
+      const peerMessages = selectedPeer ? (state.dmThreads[selectedPeer.id] || []) : [];
+
+      return `
+        <div class="flex flex-col h-full min-h-0 space-y-2">
+          <div class="flex gap-2 overflow-x-auto pb-1 shrink-0">
+            ${peers.map((p) => `
+              <button type="button" onclick="state.selectedDmUserId='${p.id}'; render();" class="px-3.5 py-2 rounded-xl text-xs font-bold border ${p.id === state.selectedDmUserId ? 'bg-purple-700 text-white' : 'bg-white text-purple-950'}">${p.firstName} ${p.lastName}</button>
+            `).join('')}
+          </div>
+          <div class="flex-1 min-h-0 bg-white rounded-2xl border border-purple-100 flex flex-col overflow-hidden">
+            <div id="dmMessagesScroll" class="flex-1 overflow-y-auto p-3 space-y-2.5 min-h-0">
+              ${peerMessages.map((m) => `
+                <div class="flex flex-col ${m.fromMe ? 'items-end' : 'items-start'}">
+                  <div class="max-w-[82%] px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm ${m.fromMe ? 'bg-cyan-600 text-white' : 'bg-white text-purple-950 border border-purple-100'}">${m.text}</div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="p-2 bg-white border-t border-purple-100 flex gap-2 shrink-0">
+              <input id="dmInput" type="text" placeholder="Şəxsi mesaj..." class="flex-1 rounded-xl border border-purple-200 px-3.5 py-2.5 text-xs sm:text-sm" />
+              <button type="button" onclick="sendDirectMessage()" class="px-4 py-2.5 rounded-xl bg-cyan-600 text-white text-xs sm:text-sm font-bold">Göndər</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderMembersView() {
+      const isGuest = state.role === 'guest';
+      const isCreator = state.role === 'creator';
+      const rankOrder = { creator: 0, admin: 1, moder: 2, old: 3, aktiv: 4 };
+      const sortedMembers = [...state.members].sort((a, b) => {
+        const ra = rankOrder[a.status || (a.role === 'admin' ? 'admin' : 'aktiv')] ?? 4;
+        const rb = rankOrder[b.status || (b.role === 'admin' ? 'admin' : 'aktiv')] ?? 4;
+        return ra - rb;
+      });
+
+      return `
+        <div class="space-y-3.5">
+          <div class="bg-white rounded-2xl p-3.5 border border-purple-100 shadow-xs">
+            <h2 class="text-xs sm:text-sm font-extrabold text-purple-950">Klub Üzvləri (${sortedMembers.length})</h2>
+          </div>
+          <div class="space-y-2.5">
+            ${sortedMembers.map((m) => {
+              const currentStatus = m.status || (m.role === 'admin' ? 'admin' : 'aktiv');
+              return `
+                <div class="bg-white rounded-2xl p-3.5 border border-purple-100 space-y-2.5 shadow-2xs">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <div class="mb-1">${getStatusBadgeHtml(currentStatus)}</div>
+                      <div class="text-xs sm:text-sm font-extrabold text-purple-950 ${isGuest ? 'guest-blur' : ''}">${m.firstName} ${m.lastName}</div>
+                      ${isGuest ? '' : `<div class="text-xs text-slate-600 mt-0.5">${m.phone} • <span class="text-purple-700 font-semibold">${m.nickname}</span></div>`}
+                    </div>
+                  </div>
+                  ${
+                    isCreator && m.id !== state.currentUser.id
+                      ? `<div class="pt-2 border-t border-purple-100 flex flex-wrap items-center justify-between gap-1.5">
+                           <span class="text-[11px] font-bold text-purple-900">Statusu dəyiş:</span>
+                           <div class="flex flex-wrap gap-1">
+                             <button type="button" onclick="creatorChangeMemberStatus('${m.id}', 'admin')" class="px-2 py-1 rounded-lg text-[11px] font-bold ${currentStatus === 'admin' ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900 border border-blue-200'}">Admin et</button>
+                             <button type="button" onclick="creatorChangeMemberStatus('${m.id}', 'moder')" class="px-2 py-1 rounded-lg text-[11px] font-bold ${currentStatus === 'moder' ? 'bg-sky-600 text-white' : 'bg-sky-50 text-sky-800 border border-sky-200'}">Moder et</button>
+                             <button type="button" onclick="creatorChangeMemberStatus('${m.id}', 'old')" class="px-2 py-1 rounded-lg text-[11px] font-bold ${currentStatus === 'old' ? 'bg-orange-500 text-white' : 'bg-orange-50 text-orange-800 border border-orange-200'}">Old et</button>
+                             <button type="button" onclick="creatorChangeMemberStatus('${m.id}', 'aktiv')" class="px-2 py-1 rounded-lg text-[11px] font-bold ${currentStatus === 'aktiv' ? 'bg-purple-700 text-white' : 'bg-purple-50 text-purple-800 border border-purple-200'}">Aktiv et</button>
+                           </div>
+                         </div>`
+                      : ''
+                  }
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAccountView() {
+      const u = state.currentUser;
+      if (state.role === 'guest') {
+        return `
+          <div class="bg-white rounded-2xl p-5 border border-purple-100 text-center space-y-4 shadow-xs">
+            <div class="text-base font-extrabold text-purple-950">Hesab Bölməsi</div>
+            <div class="flex gap-2">
+              <button type="button" onclick="openRoleModal('login')" class="flex-1 py-3 rounded-xl bg-purple-700 text-white text-xs sm:text-sm font-bold">Giriş</button>
+              <button type="button" onclick="openRoleModal('register')" class="flex-1 py-3 rounded-xl bg-cyan-600 text-white text-xs sm:text-sm font-bold">Qeydiyyat</button>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl p-4 border border-purple-100 space-y-3 shadow-xs">
+            <div class="flex items-center justify-between border-b border-purple-100 pb-2">
+              <h2 class="text-xs sm:text-sm font-extrabold text-purple-950">Qeydiyyat Məlumatları</h2>
+              <button type="button" onclick="state.role='guest'; state.currentUser={...GUEST_ACCOUNT}; render();" class="text-xs font-bold text-rose-600 hover:underline">Çıxış et</button>
+            </div>
+
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="flex items-center justify-between p-2.5 bg-purple-50/60 rounded-xl">
+                <span class="text-slate-500 font-medium">Ad: <b class="text-purple-950 ml-1">${u.firstName}</b></span>
+              </div>
+              <div class="flex items-center justify-between p-2.5 bg-purple-50/60 rounded-xl">
+                <span class="text-slate-500 font-medium">Soyad: <b class="text-purple-950 ml-1">${u.lastName}</b></span>
+              </div>
+              <div class="flex items-center justify-between p-2.5 bg-purple-50/60 rounded-xl">
+                <span class="text-slate-500 font-medium">Telefon: <b class="text-purple-950 ml-1">${u.phone}</b></span>
+              </div>
+              <div class="flex items-center justify-between p-2.5 bg-cyan-50/60 rounded-xl border border-cyan-100">
+                <span class="text-slate-500 font-medium">Nik: <b class="text-cyan-950 ml-1">${u.nickname}</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function render() {
+      checkPassiveMembersAndNotify();
+      renderTopRoleBadge();
+      updateNavStyles();
+      const container = document.getElementById('mainContainer');
+      if (state.activeTab === 'home') container.innerHTML = renderHomeView();
+      else if (state.activeTab === 'announcements') container.innerHTML = renderAnnouncementsView();
+      else if (state.activeTab === 'chat') container.innerHTML = renderChatView();
+      else if (state.activeTab === 'dm') container.innerHTML = renderDirectMessagesView();
+      else if (state.activeTab === 'members') container.innerHTML = renderMembersView();
+      else if (state.activeTab === 'account') container.innerHTML = renderAccountView();
+    }
+
+    window.onload = function () {
+      render();
+    };
+  </script>
+</body>
+</html>
